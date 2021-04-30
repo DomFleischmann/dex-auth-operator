@@ -1,5 +1,14 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "docker:enableMajor"
+  ],
+  "regexManagers": [
+	{
+		"fileMatch": ["metadata.yaml$"],
+		"matchStrings": ["upstream-source: (?<depName>.*?):(?<currentValue>.*?)\n"],
+		"datasourceTemplate": "docker"
+	}
   ]
+	
 }
